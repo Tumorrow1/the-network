@@ -1,6 +1,6 @@
-export class Account {
+export class Profile {
   /**
-   * @typedef AccountData
+   * @typedef ProfileData
    * @property {string} id
    * @property {string} email
    * @property {string} name
@@ -16,7 +16,7 @@ export class Account {
    * 
    *
    * 
-   * @param {AccountData} data
+   * @param {Profile} data
    */
   constructor(data) {
     this.id = data.id

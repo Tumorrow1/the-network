@@ -1,5 +1,6 @@
 <script setup>
 import { Post } from '@/models/Posts.js';
+import ProfilePage from '@/pages/ProfilePage.vue';
 
 
 
@@ -10,7 +11,7 @@ defineProps({
 
 
 <template>
-  <div class="border black mb-3 ">
+  <div class="border black mb-3 p-3 ">
 
     <div class="mb-3">
       <img :src="postProp.imgUrl" :alt="`image for you not to see `" class="img-fluid">
@@ -18,13 +19,20 @@ defineProps({
     <div>
       <p>{{ postProp.body }}</p>
     </div>
-    <div class="d-flex justify-content-end align-items-center">
-      <p>{{ postProp.creator.picture }}</p>
-
-    </div>
+    <RouterLink :to="{ name: `ProfilePage`, params: { profileId: postProp.creatorId } }">
+      <img :src="postProp.creator.picture" :alt="postProp.creator.name" class="creator-img"
+        :title="`go to ${postProp.creator.name}'s profile Page'`">
+    </RouterLink>
   </div>
+
 
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.creator-img {
+  height: 3rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+</style>

@@ -4,6 +4,11 @@ import { Post } from "@/models/Posts.js"
 import { AppState } from "@/AppState.js"
 
 class PostsService {
+  async getPostsByCreatorId(creatorId) {
+    const response = await api.get(`api/posts?creatorId=${creatorId}`)
+    logger.log(`got posts`, response.data)
+
+  }
 
   async getPosts() {
     const response = await api.get(`api/posts`)
@@ -12,6 +17,7 @@ class PostsService {
     AppState.posts = posts
   }
 }
+
 
 
 
