@@ -13,5 +13,8 @@ export const AppState = reactive({
   profile: null,
   /** @type {import('./models/Posts.js').Post[]} user info from the database*/
   profileposts: [],
+  currentPage: 0,
+  totalPages: 0,
+
 })
 
